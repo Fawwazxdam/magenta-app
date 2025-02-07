@@ -5,6 +5,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -27,6 +28,11 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::prefix('customer')->group(function () {
         Route::get('/', [CustomerController::class, 'index'])->name('customer');
         Route::get('/add', [CustomerController::class, 'create'])->name('customer.add');
+        Route::post('store', [CustomerController::class, 'store'])->name('customer.store');
+        Route::get('/show/{uuid}', [CustomerController::class, 'show'])->name('customer.show');
+        Route::get('/edit/{uuid}', [CustomerController::class, 'edit'])->name('customer.edit');
+        Route::post('update/{uuid}', [CustomerController::class, 'update'])->name('customer.update');
+        Route::get('delete/{uuid}', [CustomerController::class, 'destroy'])->name('customer.destroy');
     });
 
     Route::prefix('employee')->group(function () {
@@ -42,6 +48,11 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::prefix('transaction')->group(function () {
         Route::get('/', [TransactionController::class, 'index'])->name('transaction');
         Route::get('/add', [TransactionController::class, 'create'])->name('transaction.add');
+    });
+
+    Route::prefix('user')->group(function () {
+        Route::get('/', [UserController::class, 'index'])->name('user');
+        Route::get('/add', [UserController::class, 'create'])->name('user.add');
     });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

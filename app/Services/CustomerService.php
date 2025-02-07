@@ -5,12 +5,19 @@ namespace App\Services;
 use App\Models\Customer;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Yajra\DataTables\Facades\DataTables;
 
 class CustomerService
 {
     public function getCustomers(array $params = [])
     {
+        // dd(Customer::all());
         return Customer::all();
+    }
+
+    public function getDatatable(array $params = [])
+    {
+        return DataTables::of($this->getCustomers($params))->make(true);
     }
 
     public function getCustomer(string $ID)
