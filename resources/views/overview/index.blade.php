@@ -11,7 +11,7 @@
         </div>
     </div> --}}
 
-    <div class="min-h-screen p-6">
+    <div class="min-h-screen">
         <!-- Header -->
         <div class="mb-6">
             <h1 class="text-3xl font-semibold text-gray-700">Overview</h1>

@@ -1,6 +1,6 @@
-<div class="bg-white shadow-md flex justify-between items-center px-4 py-3">
+<div class="bg-background shadow-md flex justify-between items-center px-4 py-3">
     <!-- Toggle Sidebar Button -->
-    <button id="toggleSidebar" class="text-gray-700 focus:outline-none">
+    <button id="toggleSidebar" class="text-secondary focus:outline-none">
         <span class="material-icons">menu</span>
     </button>
 
@@ -8,7 +8,7 @@
     <div class="flex items-center space-x-4">
         <!-- Notification Icon -->
         <div class="relative">
-            <button class="text-gray-700 focus:outline-none">
+            <button class="text-secondary focus:outline-none">
                 <span class="material-icons">notifications</span>
             </button>
             <span class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1">
