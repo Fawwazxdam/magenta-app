@@ -28,11 +28,11 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::prefix('customer')->group(function () {
         Route::get('/', [CustomerController::class, 'index'])->name('customer');
         Route::get('/add', [CustomerController::class, 'create'])->name('customer.add');
-        Route::post('store', [CustomerController::class, 'store'])->name('customer.store');
+        Route::post('/store', [CustomerController::class, 'store'])->name('customer.store');
         Route::get('/show/{uuid}', [CustomerController::class, 'show'])->name('customer.show');
         Route::get('/edit/{uuid}', [CustomerController::class, 'edit'])->name('customer.edit');
-        Route::post('update/{uuid}', [CustomerController::class, 'update'])->name('customer.update');
-        Route::get('delete/{uuid}', [CustomerController::class, 'destroy'])->name('customer.destroy');
+        Route::post('/update/{uuid}', [CustomerController::class, 'update'])->name('customer.update');
+        Route::get('/delete/{uuid}', [CustomerController::class, 'destroy'])->name('customer.destroy');
     });
 
     Route::prefix('employee')->group(function () {
@@ -43,6 +43,11 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::prefix('product')->group(function () {
         Route::get('/', [ProductController::class, 'index'])->name('product');
         Route::get('/add', [ProductController::class, 'create'])->name('product.add');
+        Route::post('/store', [ProductController::class, 'store'])->name('product.store');
+        Route::get('/show/{uuid}', [ProductController::class, 'show'])->name('product.show');
+        Route::get('/edit/{uuid}', [ProductController::class, 'edit'])->name('product.edit');
+        Route::post('/update/{uuid}', [ProductController::class, 'update'])->name('product.update');
+        Route::get('/delete/{uuid}', [ProductController::class, 'destroy'])->name('product.destroy');
     });
 
     Route::prefix('transaction')->group(function () {

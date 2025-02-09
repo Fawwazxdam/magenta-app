@@ -7,20 +7,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
 
-class Product extends Model
+class Category extends Model
 {
     use HasFactory, HasUuids;
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    public function category()
+    public function products()
     {
-        return $this->belongsTo(Category::class);
-    }
-
-    public function images()
-    {
-        return $this->morphMany(Image::class, 'referenceable');
+        return $this->hasMany(Product::class);
     }
 
     public function newUniqueId(): string

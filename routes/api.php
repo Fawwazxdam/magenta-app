@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CustomerController;
+use App\Http\Controllers\Api\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
@@ -12,6 +13,11 @@ Route::get('/user', function (Request $request) {
 Route::prefix('customer')->group(function () {
     Route::get('/datatable', [CustomerController::class, 'getDatatable'])->name('api.customer.datatable');
     Route::post('/store', [CustomerController::class, 'store'])->name('api.customer.store');
+});
+
+Route::prefix('product')->group(function () {
+    Route::get('/datatable', [ProductController::class, 'getDatatable'])->name('api.product.datatable');
+    // Route::post('/store', [CustomerController::class, 'store'])->name('api.customer.store');
 });
 
 

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Ramsey\Uuid\Uuid;
 
 class Image extends Model
 {
@@ -15,5 +16,15 @@ class Image extends Model
     public function product()
     {
         return $this->morphTo();
+    }
+
+    public function newUniqueId(): string
+    {
+        return (string) Uuid::uuid4();
+    }
+
+    public function uniqueIds(): array
+    {
+        return ['uuid'];
     }
 }
