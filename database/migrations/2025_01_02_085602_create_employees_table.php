@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('unit')->nullable();
             $table->enum('status', ['ACTIVE', 'INACTIVE'])->default('ACTIVE');
             $table->timestamp('joined_at');
+            $table->timestamp('created_on');
             $table->timestamps();
         });
     }

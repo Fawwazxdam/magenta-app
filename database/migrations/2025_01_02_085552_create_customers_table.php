@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('additional_address')->nullable();
             $table->string('coordinate')->nullable();
+            $table->timestamp('created_on');
             $table->timestamps();
         });
     }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->nullableMorphs('referenceable');
+            $table->timestamp('created_on');
             $table->timestamps();
         });
     }
