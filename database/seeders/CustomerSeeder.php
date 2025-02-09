@@ -26,6 +26,7 @@ class CustomerSeeder extends Seeder
                 'address' => 'Jl. Jenggolo II/17',
                 'additional_address' => '-',
                 'coordinate' => '-7.439121453153504, 112.72450626728181',
+                'created_on' => now(),
             ],
             [
                 'name' => 'Magenta Design',
@@ -39,6 +40,7 @@ class CustomerSeeder extends Seeder
                 'address' => 'Kemisik, Jl. Jaksa Agung Suprapto No.16',
                 'additional_address' => '67156',
                 'coordinate' => '-7.65083399250179, 112.68449826728455',
+                'created_on' => now(),
             ],
         ];
         foreach ($customers as $customer) {
