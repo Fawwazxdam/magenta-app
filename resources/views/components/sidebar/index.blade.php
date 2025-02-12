@@ -4,19 +4,19 @@
     </div>
     <ul class="menu p-4 space-y-2 text-primary">
         <li>
-            <a href="{{route('overview')}}" class="flex items-center space-x-3 hover:translate-x-3 rounded-md p-2">
+            <a href="{{route('overview')}}" class="flex items-center space-x-3 hover:translate-x-3 rounded-md p-2 @if (Request::is('overview') || Request::is('overview/*')) bg-primary text-light font-bold hover:bg-primary hover:text-light @endif">
                 <span class="material-icons">dashboard</span>
                 <span class="sidebar-menu">Overview</span>
             </a>
         </li>
         <li>
-            <a href="{{route('transaction')}}" class="flex items-center space-x-3 hover:translate-x-3 rounded-md p-2">
+            <a href="{{route('transaction')}}" class="flex items-center space-x-3 hover:translate-x-3 rounded-md p-2 @if (Request::is('transaction') || Request::is('transaction/*')) bg-primary text-light font-bold hover:bg-primary hover:text-light @endif">
                 <span class="material-icons">receipt</span>
                 <span class="sidebar-menu">Transaksi</span>
             </a>
         </li>
         <li>
-            <a href="{{route('product')}}" class="flex items-center space-x-3 hover:translate-x-3 rounded-md p-2">
+            <a href="{{route('product')}}" class="flex items-center space-x-3 hover:translate-x-3 rounded-md p-2 @if (Request::is('product') || Request::is('product/*')) bg-primary text-light font-bold hover:bg-primary hover:text-light @endif">
                 <span class="material-icons">inventory_2</span>
                 <span class="sidebar-menu">Produk</span>
             </a>
@@ -34,7 +34,7 @@
             </a>
         </li>
         <li>
-            <a href="{{route('user')}}" class="flex items-center space-x-3 hover:translate-x-3 rounded-md p-2">
+            <a href="{{route('employee')}}" class="flex items-center space-x-3 hover:translate-x-3 rounded-md p-2">
                 <span class="material-icons">person</span>
                 <span class="sidebar-menu">Pengguna</span>
             </a>

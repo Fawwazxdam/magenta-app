@@ -5,12 +5,18 @@ namespace App\Services;
 use App\Models\Employee;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Yajra\DataTables\Facades\DataTables;
 
 class EmployeeService
 {
     public function getEmployees(array $params = [])
     {
         return Employee::all();
+    }
+
+    public function getDatatable(array $params = [])
+    {
+        return DataTables::of($this->getEmployees($params))->make(true);
     }
 
     public function getEmployee(string $ID)

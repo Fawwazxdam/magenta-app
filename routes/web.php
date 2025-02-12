@@ -38,6 +38,16 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::prefix('employee')->group(function () {
         Route::get('/', [EmployeeController::class, 'index'])->name('employee');
         Route::get('/add', [EmployeeController::class, 'create'])->name('employee.add');
+        Route::post('/store', [EmployeeController::class, 'store'])->name('employee.store');
+        Route::get('/show/{uuid}', [EmployeeController::class, 'show'])->name('employee.show');
+        Route::get('/edit/{uuid}', [EmployeeController::class, 'edit'])->name('employee.edit');
+        Route::post('/update/{uuid}', [EmployeeController::class, 'update'])->name('employee.update');
+        Route::get('/delete/{uuid}', [EmployeeController::class, 'destroy'])->name('employee.destroy');
+    });
+
+    Route::prefix('employee')->group(function () {
+        Route::get('/', [EmployeeController::class, 'index'])->name('employee');
+        Route::get('/add', [EmployeeController::class, 'create'])->name('employee.add');
     });
 
     Route::prefix('product')->group(function () {
@@ -53,6 +63,11 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::prefix('transaction')->group(function () {
         Route::get('/', [TransactionController::class, 'index'])->name('transaction');
         Route::get('/add', [TransactionController::class, 'create'])->name('transaction.add');
+        Route::post('/store', [TransactionController::class, 'store'])->name('transaction.store');
+        Route::get('/show/{uuid}', [TransactionController::class, 'show'])->name('transaction.show');
+        Route::get('/edit/{uuid}', [TransactionController::class, 'edit'])->name('transaction.edit');
+        Route::post('/update/{uuid}', [TransactionController::class, 'update'])->name('transaction.update');
+        Route::get('/delete/{uuid}', [TransactionController::class, 'destroy'])->name('transaction.destroy');
     });
 
     Route::prefix('user')->group(function () {

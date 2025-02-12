@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Api\CustomerController;
+use App\Http\Controllers\Api\EmployeeController;
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\TransactionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
@@ -15,8 +17,18 @@ Route::prefix('customer')->group(function () {
     Route::post('/store', [CustomerController::class, 'store'])->name('api.customer.store');
 });
 
+Route::prefix('employee')->group(function () {
+    Route::get('/datatable', [EmployeeController::class, 'getDatatable'])->name('api.employee.datatable');
+    // Route::post('/store', [CustomerController::class, 'store'])->name('api.customer.store');
+});
+
 Route::prefix('product')->group(function () {
     Route::get('/datatable', [ProductController::class, 'getDatatable'])->name('api.product.datatable');
+    // Route::post('/store', [CustomerController::class, 'store'])->name('api.customer.store');
+});
+
+Route::prefix('transaction')->group(function () {
+    Route::get('/datatable', [TransactionController::class, 'getDatatable'])->name('api.transaction.datatable');
     // Route::post('/store', [CustomerController::class, 'store'])->name('api.customer.store');
 });
 
