@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\EmployeeController;
 use App\Http\Controllers\Api\ProductController;
@@ -19,6 +20,11 @@ Route::prefix('customer')->group(function () {
 
 Route::prefix('employee')->group(function () {
     Route::get('/datatable', [EmployeeController::class, 'getDatatable'])->name('api.employee.datatable');
+    // Route::post('/store', [CustomerController::class, 'store'])->name('api.customer.store');
+});
+
+Route::prefix('category')->group(function () {
+    Route::get('/datatable', [CategoryController::class, 'getDatatable'])->name('api.category.datatable');
     // Route::post('/store', [CustomerController::class, 'store'])->name('api.customer.store');
 });
 

@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Category;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Yajra\DataTables\Facades\DataTables;
 
 class CategoryService
 {
@@ -13,6 +14,11 @@ class CategoryService
         $query = Category::all();
 
         return $query;
+    }
+
+    public function getDatatable(array $params = [])
+    {
+        return DataTables::of($this->getCategories($params))->make(true);
     }
 
     public function getCategory(string $ID)

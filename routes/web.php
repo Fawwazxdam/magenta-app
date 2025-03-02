@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProductController;
@@ -45,11 +46,6 @@ Route::middleware('auth', 'verified')->group(function () {
         Route::get('/delete/{uuid}', [EmployeeController::class, 'destroy'])->name('employee.destroy');
     });
 
-    Route::prefix('employee')->group(function () {
-        Route::get('/', [EmployeeController::class, 'index'])->name('employee');
-        Route::get('/add', [EmployeeController::class, 'create'])->name('employee.add');
-    });
-
     Route::prefix('product')->group(function () {
         Route::get('/', [ProductController::class, 'index'])->name('product');
         Route::get('/add', [ProductController::class, 'create'])->name('product.add');
@@ -58,6 +54,16 @@ Route::middleware('auth', 'verified')->group(function () {
         Route::get('/edit/{uuid}', [ProductController::class, 'edit'])->name('product.edit');
         Route::post('/update/{uuid}', [ProductController::class, 'update'])->name('product.update');
         Route::get('/delete/{uuid}', [ProductController::class, 'destroy'])->name('product.destroy');
+    });
+
+    Route::prefix('category')->group(function () {
+        Route::get('/', [CategoryController::class, 'index'])->name('category');
+        Route::get('/add', [CategoryController::class, 'create'])->name('category.add');
+        Route::post('/store', [CategoryController::class, 'store'])->name('category.store');
+        Route::get('/show/{uuid}', [CategoryController::class, 'show'])->name('category.show');
+        Route::get('/edit/{uuid}', [CategoryController::class, 'edit'])->name('category.edit');
+        Route::post('/update/{uuid}', [CategoryController::class, 'update'])->name('category.update');
+        Route::get('/delete/{uuid}', [CategoryController::class, 'destroy'])->name('category.destroy');
     });
 
     Route::prefix('transaction')->group(function () {
