@@ -22,6 +22,12 @@
             </a>
         </li>
         <li>
+            <a href="{{route('category')}}" class="flex items-center space-x-3 hover:translate-x-3 rounded-md p-2 @if (Request::is('category') || Request::is('category/*')) bg-primary text-light font-bold hover:bg-primary hover:text-light @endif">
+                <span class="material-icons">inventory_2</span>
+                <span class="sidebar-menu">Kategori</span>
+            </a>
+        </li>
+        <li>
             <a href="{{route('customer')}}" class="flex items-center space-x-3 hover:translate-x-3 rounded-md p-2 @if (Request::is('customer') || Request::is('customer/*')) bg-primary text-light font-bold hover:bg-primary hover:text-light @endif">
                 <span class="material-icons">group</span>
                 <span class="sidebar-menu">Pelanggan</span>
